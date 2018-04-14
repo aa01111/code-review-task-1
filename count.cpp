@@ -1,4 +1,4 @@
-// count.cpp : ¶¨Òå¿ØÖÆÌ¨Ó¦ÓÃ³ÌĞòµÄÈë¿Úµã¡£
+// count.cpp : å®šä¹‰æ§åˆ¶å°åº”ç”¨ç¨‹åºçš„å…¥å£ç‚¹ã€‚
 //
 
 #include "stdafx.h"
@@ -18,13 +18,13 @@ public:
 };
 
 bool comparison(Save a, Save b) {
-	//½µĞòÅÅÁĞ>
+	//é™åºæ’åˆ—>
 	return a.number>b.number;
 }
 string readFileIntoString()
 {
 	ifstream ifile;
-	//ÏÈ¶ÁÈëµ½buf
+	//å…ˆè¯»å…¥åˆ°buf
 	ifile.open("d:\\words.txt");
 	ostringstream buf;
 	char ch;
@@ -35,14 +35,15 @@ string readFileIntoString()
 	return buf.str();
 }
 
+//è¿™ä¸ªå‡½æ•°æœ‰ç‚¹å¤ªé•¿äº†ï¼Œèƒ½å¦å°è¯•åˆ†è§£ä¸€ä¸‹ã€‚è€Œä¸”å®ƒçš„åå­—ä¹Ÿæ²¡æœ‰å‡†ç¡®ååº”å®ƒçš„åŠŸèƒ½ã€‚
 void count(string s)
 {
 	string result;
-	//record¼ÇÂ¼µ¥´ÊÊ××ÖÄ¸
+	//recordè®°å½•å•è¯é¦–å­—æ¯
 	int record = 0;
-	//number¼ÇÂ¼µ¥´Ê³öÏÖ´ÎÊı
+	//numberè®°å½•å•è¯å‡ºç°æ¬¡æ•°
 	int number = 1;
-	//É¾³ı¿ªÍ·µÄ¿Õ¸ñ
+	//åˆ é™¤å¼€å¤´çš„ç©ºæ ¼
 	int i = 0;
 	int numOfWord = 0;
 	vector <Save> save(100);
@@ -51,7 +52,7 @@ void count(string s)
 		i++;
 	}
 	s = s.substr(i, s.size());
-	//»»ĞĞ×ª»¯Îª¿Õ¸ñ
+	//æ¢è¡Œè½¬åŒ–ä¸ºç©ºæ ¼
 	for (int i = 0; i < s.size(); i++)
 	{
 		if (s[i] == '\n')
@@ -64,7 +65,7 @@ void count(string s)
 	{
 		if (s[i] == 32)
 		{
-			//°ÑÓöµ½µÄµÚÒ»¸öµ¥´Ê·ÅÔÚresultÖĞ
+			//æŠŠé‡åˆ°çš„ç¬¬ä¸€ä¸ªå•è¯æ”¾åœ¨resultä¸­
 			result.append(s, record, i - record);
 			while (s[i] == 32)
 			{
@@ -72,7 +73,7 @@ void count(string s)
 			}
 			s = s.substr(i, s.size());
 			i = 0;
-			//²éÕÒsÖĞÊÇ·ñ»¹ÓĞ¸Ãµ¥´Ê£¬ÕÒµ½Ôò´ÓsÖĞÉ¾³ı
+			//æŸ¥æ‰¾sä¸­æ˜¯å¦è¿˜æœ‰è¯¥å•è¯ï¼Œæ‰¾åˆ°åˆ™ä»sä¸­åˆ é™¤
 			//cout << s << "  before  "<<endl;
 			int pos;
 			while ((pos = s.find(result)) != string::npos)
@@ -95,7 +96,7 @@ void count(string s)
 			result = "";
 			number = 1;
 		}
-		//´¦Àí×îºóÒ»¸öµ¥´Ê
+		//å¤„ç†æœ€åä¸€ä¸ªå•è¯
 		if (i == s.size() && s != "")
 		{
 			//cout << s << " " << "1" << endl;
